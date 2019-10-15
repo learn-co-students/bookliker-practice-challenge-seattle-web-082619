@@ -33,6 +33,9 @@ function displaySingleBook(book) {
 } 
 
 function displayBookInfo(book) {
+  while (showPanel.firstChild) {
+    showPanel.removeChild(showPanel.firstChild)
+  }
   const div = document.createElement('div')
   const h2 = document.createElement('h2');
   const img = document.createElement('img')
@@ -40,7 +43,6 @@ function displayBookInfo(book) {
   const button = document.createElement('button');
 
   div.setAttribute('class','show-book')
-  div.display = ""
 
   h2.textContent = book.title;
 

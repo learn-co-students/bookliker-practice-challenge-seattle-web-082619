@@ -10,3 +10,7 @@ body {
 .liked-book {
 	color: #ff0000;
 }
+
+.current-book {
+	background-color: azure;
+}
