@@ -48,8 +48,40 @@ function iterateThroughBooksAndShow(modifiedJson){
         
           let individualBookTitle = document.createElement('div');
           individualBookTitle.textContent = modifiedJson[i]["title"];
-        
-          showPannel.append(individualBookTitle,individualImageUrl,descriptionDiv); 
+
+          let individualButton = document.createElement('button');
+          individualButton.innerText ="Like";
+
+          showPannel.append(individualBookTitle,individualImageUrl,descriptionDiv,individualButton); 
+
+          individualButton.addEventListener('click', (event) =>{
+
+              let usersWhoLikeBook = document.createElement('div');
+              usersWhoLikeBook.innerText = event.target;
+              console.log(event.target)
+              showPannel.append(usersWhoLikeBook)
+           
+              // trying to get patch to render liked status and return who liked the book in the past. 
+              
+            // let config = {
+            //   method: 'PATCH',
+            //   headers:{
+            //     'Content-type':'application/json',
+            //     'Accept': 'application/json'
+            //   },
+            //   body: JSON.stringify({
+            //   id: modifiedJson[i]['users']['id'],
+            //   username: modifiedJson[i]['users']['username']
+            //   })
+            // }
+            // fetch(URL, config)
+            // .then(response => response.json())
+            // .then(returnedjson =>{
+            //   console.log(returnedjson)
+            // })
+
+          })
+          
         }
 
     })
