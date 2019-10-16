@@ -30,10 +30,10 @@ function iterateThroughBooksAndShow(modifiedJson){
         let bookValue = event.target;
         // console.log('event target in my event listener',event.target)
         bookValue.setAttribute('style','color:teal');
-        displayBookInfo();
+        displayBookInfo(modifiedJson);
 
 
-        function displayBookInfo(){
+        function displayBookInfo(modifiedJson){
           // get title, url, description
           // add them to the page
           let descriptionDiv = document.createElement('div');
@@ -57,10 +57,25 @@ function iterateThroughBooksAndShow(modifiedJson){
           individualButton.addEventListener('click', (event) =>{
 
               let usersWhoLikeBook = document.createElement('div');
-              usersWhoLikeBook.innerText = event.target;
-              console.log(event.target)
-              showPannel.append(usersWhoLikeBook)
-           
+              
+            
+                for (let i = 0; i < modifiedJson.length; i++){
+                  
+                  let nestedArray = modifiedJson[i]['users']
+                  // console.log("nestedArray",nestedArray)
+                  // console.log("nestedArray",nestedArray);
+                  for (let i =0; i < nestedArray.length; i++){
+                    console.log("nestedArray at username", nestedArray);
+                    usersWhoLikeBook.innerText = nestedArray.username;
+
+                  
+                  
+                    // console.log("usersWhoLikeBook",usersWhoLikeBook )
+                    showPannel.append(usersWhoLikeBook)
+                  }
+                }
+            
+              
               // trying to get patch to render liked status and return who liked the book in the past. 
               
             // let config = {
