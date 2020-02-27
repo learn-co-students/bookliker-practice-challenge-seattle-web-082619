@@ -2,3 +2,15 @@ body {
 	display: grid;
 	grid-template-columns: 2fr 8fr
 }
+
+.show-book {
+	margin-left: 15px;
+}
+
+.liked-book {
+	color: #ff0000;
+}
+
+.current-book {
+	background-color: azure;
+}
